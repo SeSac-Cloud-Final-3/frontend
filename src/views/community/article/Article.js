@@ -43,7 +43,7 @@ function Article() {
     }, []);
 
     const getProfile = async () => {
-        return await axios.get(BACK_URL + "/api/v1/user/userinfo");
+        return await axios.get(`http://${window.location.hostname}:8082/api/v1/user/userinfo`);
     };
 
     const getData = async () => {
