@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, Route } from "react-router-dom";
 import styled, { css } from "styled-components/macro";
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 export const Register = ({ showRegister, setShowRegister }) => {
 

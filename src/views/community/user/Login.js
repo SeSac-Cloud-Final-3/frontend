@@ -2,6 +2,7 @@ import React, { useState, useEffect, } from "react";
 import axios from "axios";
 import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";
+axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 
 export const Login = ({ showLogin, setShowLogin }) => {
     
