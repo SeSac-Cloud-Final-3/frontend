@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import { Routes, Route, Link, Outlet } from "react-router-dom";
 import styled from "styled-components/macro";
 import Ranking from "./Ranking";
@@ -11,9 +11,23 @@ const Competition = ({ backAPI }) => {
   const compAPI = backAPI + "/competition";
   const partAPI = backAPI + "/participant";
   const [competition, setCompetition] = useState([]);
+  const [isAdmin, setIsAdmin] = useState([]);
 
   //권한 인증 필요
-  const isAdmin = true;
+  const BACK_URL = `http://${window.location.hostname}:8082`
+  
+  useLayoutEffect(() => {
+    async function refresh() {
+
+      const { data } = await axios.get(BACK_URL + "/api/v1/user/verify");
+      setIsAdmin(data.role);
+    }
+    refresh();
+}, [isAdmin]);
+
+const getProfile = () => {
+    return 
+};
 
   useEffect(() => {
     let isMounted = true;
@@ -59,6 +73,7 @@ const Competition = ({ backAPI }) => {
   };
   return (
     <>
+    <View>
       <Container>
         <Table>
           <thead>
@@ -104,7 +119,8 @@ const Competition = ({ backAPI }) => {
           </tbody>
         </Table>
       </Container>
-      {isAdmin && (
+      
+      {isAdmin === "admin" && (
         <Container>
           <ItemBox>
             <Item to="new">대회 개최</Item>
@@ -120,6 +136,7 @@ const Competition = ({ backAPI }) => {
           />
         </Route>
       </Routes>
+      </View>
       <Outlet />
     </>
   );
@@ -127,9 +144,18 @@ const Competition = ({ backAPI }) => {
 
 export default Competition;
 
+const View = styled.div`
+font-family: 'IBM Plex Sans KR', sans-serif;
+width: 100vw;
+height: 90vh;
+/* display: flex; */
+
+`
+
 const Container = styled.div`
-  margin: 1rem auto;
-  width: 80%;
+  margin: 10rem auto;
+  /* width: 100vw; */
+  /* width: 80%; */
   display: flex;
   justify-content: center;
 `;
@@ -138,7 +164,7 @@ const Table = styled.table`
   border: 1px solid;
   td,
   th {
-    padding: 5px;
+    padding: 5px 20px;
     border: 1px solid;
   }
 `;

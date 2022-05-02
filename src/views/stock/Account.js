@@ -37,7 +37,7 @@ const Account = ({ backAPI }) => {
             setCompetition(data);
         }
         refresh();
-    }, []);
+    }, [competition]);
 
     const showAccount = (accountNum, money) => {
         setShow(accountNum);

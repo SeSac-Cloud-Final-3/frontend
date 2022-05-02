@@ -28,6 +28,7 @@ function App() {
   const [update, setUpdate] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const backAPI = `http://${window.location.hostname}:8080/api/v1`;
+  // const backAPI = `http://localhost:8080/api/v1`;
 
   const handleModal = () => {
     setIsOpen(!isOpen)

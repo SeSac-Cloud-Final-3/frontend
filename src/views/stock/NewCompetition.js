@@ -45,14 +45,14 @@ const NewCompetition = ({ backAPI }) => {
   return (
     <>
       <Container>
-        <br />
-        <h2>대회 개최</h2>
-        <br />
         <form onSubmit={formHandler}>
-          <input type="text" id="name" onChange={inputHandler} />
-          <input type="date" id="start" onChange={inputHandler} />
-          <input type="date" id="end" onChange={inputHandler} />
-          <button onClick={formHandler}>확인</button>
+          <h1>대회 개최</h1>
+          <Input type="text" id="name" onChange={inputHandler} placeholder={"대회 명을 입력 해 주세요"} />
+          <Br />
+          <Input2 type="date" id="start" onChange={inputHandler} />　~　
+          <Input2 type="date" id="end" onChange={inputHandler} />
+          <Br />
+          <Button onClick={formHandler}>확인</Button>
         </form>
       </Container>
     </>
@@ -62,8 +62,43 @@ const NewCompetition = ({ backAPI }) => {
 export default NewCompetition;
 
 const Container = styled.div`
-  margin: 1rem auto;
-  width: 80%;
-  display: block;
-  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border-radius: 4px;
+  padding: 1rem;
+  border: 10px solid #0078ff;
+  background-color: white;
+  text-align: center;
 `;
+
+const Input = styled.input`
+width: 300px;
+height: 40px;
+outline: none;
+`
+
+const Input2 = styled.input`
+width: 110px;
+padding: 9px;
+`
+
+const Br = styled.div`
+margin: 1rem 0;
+`
+
+const Button = styled.div`
+padding: 9px;
+border: 1px solid rgba(0,0,0,0.5);
+transition: 0.1s ease-in-out;
+background-color: white;
+
+cursor: pointer;
+:hover{
+  color: white;
+  border: 1px solid rgba(0,0,0,0);
+  background-color: #0078ff;
+}
+`
