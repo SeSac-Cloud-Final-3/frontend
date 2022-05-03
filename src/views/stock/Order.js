@@ -50,21 +50,21 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
       <Modal style={{border: `1px solid ${isBuying ? "red":"#0078ff"}`}}>
         <p>{isBuying ? "매수" : "매도"}</p>
         <p>회사명 : {targetStock.companyName}</p>
-        <p>현재가 : {targetStock.currentPrice}</p>
+        <p>현재가 : {(targetStock.currentPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
         {pf && (
           <>
-            <p>보유량 : {pf.amount}</p>
-            <p>구매가 : {pf.buyingPrice}</p>
+            <p>보유량 : {(pf.amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
+            <p>구매가 : {(pf.buyingPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
             <p
               style={{
                 color: ratio < 0 ? "blue" : ratio > 0 ? "red" : "black",
               }}
             >
-              등락률 :{ratio}%
+              등락률 :{ratio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}%
             </p>
           </>
         )}
-        <p>거래대금 : {amount ? targetStock.currentPrice * amount : "0"}</p>
+        <p>거래대금 : {amount ? (targetStock.currentPrice * amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : "0"}</p>
         <form onSubmit={formHandler}>
           <input type="number" onChange={inputHandler} placeholder="거래량" />
           <br />

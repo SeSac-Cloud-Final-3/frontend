@@ -59,9 +59,9 @@ const TradeLogs = ({ backAPI }) => {
                 </td>
                 <td>{log.ticker}</td>
                 <td>{log.companyName}</td>
-                <td>{log.buyingPrice}</td>
-                <td>{log.sellingPrice}</td>
-                <td>{log.amount}</td>
+                <td>{(log.buyingPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
+                <td>{(log.sellingPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
+                <td>{(log.amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
                 <td
                   style={{
                     color:
@@ -72,7 +72,7 @@ const TradeLogs = ({ backAPI }) => {
                         : "black",
                   }}
                 >
-                  {log.profit}
+                  {(log.profit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </td>
                 <td>{moment(log.createdTime).format("YYYY-MM-DD HH:mm:ss")}</td>
               </tr>

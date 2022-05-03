@@ -7,16 +7,14 @@ import axios from "axios";
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 // axios.defaults.withCredentials = true;
 
-const OrderModule = ({ backAPI , company, compId, orderOpened, setOrderOpened}) => {
+const OrderModule = ({ backAPI, company, compId, orderOpened, setOrderOpened }) => {
 
     return (
         <>
+            {typeof company.companyName !== "undefined" ? 
             <Container>
-            <h1>{company.companyName || "선택된 회사가 없습니다"}</h1>
-            {
-                typeof company.companyName !== "undefined" ?
-                    <>
-                    {
+                <h1>{company.companyName}</h1>
+                {
                     <OrderButton
                         backAPI={backAPI}
                         isBuying={true}
@@ -25,9 +23,9 @@ const OrderModule = ({ backAPI , company, compId, orderOpened, setOrderOpened}) 
                         compId={compId}
                         orderOpened={orderOpened}
                         setOrderOpened={setOrderOpened}
-                        />
-                    }
-                    {
+                    />
+                }
+                {
                     <OrderButton
                         backAPI={backAPI}
                         isBuying={false}
@@ -36,12 +34,13 @@ const OrderModule = ({ backAPI , company, compId, orderOpened, setOrderOpened}) 
                         compId={compId}
                         orderOpened={orderOpened}
                         setOrderOpened={setOrderOpened}
-                        />
-                    }
-                    </>
-                : null
-            }
+                    />
+                }
+            </Container> : 
+            <Container>
+                <h1>선택된 회사가 없습니다</h1>
             </Container>
+            }
         </>
     );
 };

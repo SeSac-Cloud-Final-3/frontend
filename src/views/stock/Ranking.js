@@ -51,7 +51,7 @@ const Ranking = ({ backAPI, competition }) => {
                 <tr key={idx}>
                   <td>{rank.rank}</td>
                   <td>{rank.nickname}</td>
-                  <td>{rank.totalCapital}</td>
+                  <td>{(rank.totalCapital).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
                 </tr>
               ))}
           </tbody>

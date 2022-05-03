@@ -52,18 +52,18 @@ const Portfolio = ({ backAPI }) => {
               <tr key={pf.id}>
                 <td>{pf.stockInfo.ticker}</td>
                 <td>{pf.stockInfo.companyName}</td>
-                <td>{pf.buyingPrice}</td>
-                <td>{pf.stockInfo.currentPrice}</td>
-                <td>{pf.amount}</td>
+                <td>{(pf.buyingPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
+                <td>{(pf.stockInfo.currentPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
+                <td>{(pf.amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
                 <td
                   style={{
                     color:
                       pf.profit > 0 ? "red" : pf.profit < 0 ? "blue" : "black",
                   }}
                 >
-                  {pf.profit}
+                  {(pf.profit).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 </td>
-                <td>{pf.value}</td>
+                <td>{(pf.value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</td>
               </tr>
             ))}
         </tbody>
