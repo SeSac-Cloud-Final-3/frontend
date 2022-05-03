@@ -67,11 +67,13 @@ const Container = styled.div`
   margin: 1rem auto;
   /* width: 80%; */
   display: block;
+  text-align: center;
   justify-content: center;
 `;
 
 const Table = styled.table`
   border: 1px solid;
+  margin: 0 auto;
   td,
   th {
     padding: 5px;

@@ -75,6 +75,7 @@ const Portfolio = ({ backAPI }) => {
 export default Portfolio;
 
 const Container = styled.div`
+  font-family: 'IBM Plex Sans KR', sans-serif;
   margin: 1rem auto;
   width: 80%;
   display: flex;
@@ -83,9 +84,10 @@ const Container = styled.div`
 
 const Table = styled.table`
   border: 1px solid;
+  margin: 1rem;
   td,
   th {
-    padding: 5px;
+    padding: 0.5rem 1rem;
     border: 1px solid;
   }
 `;

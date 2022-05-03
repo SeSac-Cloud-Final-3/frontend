@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components/macro";
 import axios from "axios";
+import moment from "moment";
+import 'moment/locale/ko'
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 // axios.defaults.withCredentials = true;
 
@@ -72,7 +74,7 @@ const TradeLogs = ({ backAPI }) => {
                 >
                   {log.profit}
                 </td>
-                <td>{log.createdTime}</td>
+                <td>{moment(log.createdTime).format("YYYY-MM-DD HH:mm:ss")}</td>
               </tr>
             ))}
         </tbody>
@@ -84,6 +86,7 @@ const TradeLogs = ({ backAPI }) => {
 export default TradeLogs;
 
 const Container = styled.div`
+  font-family: 'IBM Plex Sans KR', sans-serif;
   margin: 1rem auto;
   width: 80%;
   display: flex;
@@ -92,9 +95,10 @@ const Container = styled.div`
 
 const Table = styled.table`
   border: 1px solid;
+  margin: 1rem;
   td,
   th {
-    padding: 5px;
+    padding: 0.5rem 1rem;
     border: 1px solid;
   }
 `;

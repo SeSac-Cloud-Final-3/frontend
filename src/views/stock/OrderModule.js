@@ -16,6 +16,7 @@ const OrderModule = ({ backAPI , company, compId, orderOpened, setOrderOpened}) 
             {
                 typeof company.companyName !== "undefined" ?
                     <>
+                    {
                     <OrderButton
                         backAPI={backAPI}
                         isBuying={true}
@@ -25,6 +26,8 @@ const OrderModule = ({ backAPI , company, compId, orderOpened, setOrderOpened}) 
                         orderOpened={orderOpened}
                         setOrderOpened={setOrderOpened}
                         />
+                    }
+                    {
                     <OrderButton
                         backAPI={backAPI}
                         isBuying={false}
@@ -34,6 +37,7 @@ const OrderModule = ({ backAPI , company, compId, orderOpened, setOrderOpened}) 
                         orderOpened={orderOpened}
                         setOrderOpened={setOrderOpened}
                         />
+                    }
                     </>
                 : null
             }
