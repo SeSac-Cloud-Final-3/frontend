@@ -65,8 +65,8 @@ export default Ranking;
 
 const Container = styled.div`
   margin: 1rem auto;
-  width: 80%;
-  display: block;
+  /* width: 80%; */
+  display: flex;
   justify-content: center;
 `;
 
