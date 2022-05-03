@@ -27,7 +27,7 @@ function UserLogin({setUpdate})  {
 
     const getLogout = () => {
         localStorage.removeItem("accessToken");
-        navigate(0);
+        navigate("/");
     }
 
     return (
