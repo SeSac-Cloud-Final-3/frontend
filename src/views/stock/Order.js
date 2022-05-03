@@ -19,7 +19,7 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
 
   useLayoutEffect(() => {
     setTargetStock(stockInfo.data.find((s) => s.ticker === ticker));
-  }, [ticker]);
+  }, [ticker, amount]);
 
   const formHandler = async (event) => {
     event.preventDefault();
