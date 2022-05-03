@@ -55,7 +55,7 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
       <Modal style={{border: `1px solid ${isBuying ? "red":"#0078ff"}`}}>
         <p>{isBuying ? "매수" : "매도"}</p>
         <p>회사명 : {targetStock.companyName}</p>
-        <p>현재가 : {(targetStock.currentPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
+        <p>현재가 : {(targetStock.currentPrice)}</p>
         {pf && (
           <>
             <p>보유량 : {(pf.amount)}</p>
