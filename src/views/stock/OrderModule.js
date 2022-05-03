@@ -12,10 +12,9 @@ const OrderModule = ({ backAPI , company, compId, orderOpened, setOrderOpened}) 
     return (
         <>
             <Container>
-                {console.log(company.companyName)}
             <h1>{company.companyName || "선택된 회사가 없습니다"}</h1>
             {
-                company.companyName === null || company.companyName === undefined ?
+                typeof company.companyName !== "undefined" ?
                     <>
                     <OrderButton
                         backAPI={backAPI}
@@ -38,7 +37,6 @@ const OrderModule = ({ backAPI , company, compId, orderOpened, setOrderOpened}) 
                     </>
                 : null
             }
-
             </Container>
         </>
     );
