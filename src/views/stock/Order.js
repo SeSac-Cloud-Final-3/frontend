@@ -18,7 +18,11 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
     : 0;
 
   useLayoutEffect(() => {
-    setTargetStock(stockInfo.data.find((s) => s.ticker === ticker));
+    async function refresh() {
+      const data = await stockInfo.data.find((s) => s.ticker === ticker);
+      setTargetStock(data);
+    }
+    refresh();
   }, [ticker, amount]);
 
   const formHandler = async (event) => {
@@ -45,12 +49,13 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
     let num = event.target.value;
     setAmount(num);
   };
+
   return (
     <>
       <Modal style={{border: `1px solid ${isBuying ? "red":"#0078ff"}`}}>
         <p>{isBuying ? "매수" : "매도"}</p>
         <p>회사명 : {targetStock.companyName}</p>
-        <p>현재가 : {(targetStock.currentPrice)}</p>
+        <p>현재가 : {(targetStock.currentPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
         {pf && (
           <>
             <p>보유량 : {(pf.amount)}</p>
@@ -60,7 +65,7 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
                 color: ratio < 0 ? "blue" : ratio > 0 ? "red" : "black",
               }}
             >
-              등락률 :{ratio}%
+              등락률 : {ratio}%
             </p>
           </>
         )}
