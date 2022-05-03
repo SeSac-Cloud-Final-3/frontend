@@ -21,7 +21,7 @@ const Ranking = ({ backAPI, competition }) => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [competition]);
 
   const getRanking = async (request) => {
     let ranking = [];
