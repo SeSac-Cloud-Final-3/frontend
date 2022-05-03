@@ -107,6 +107,7 @@ const Input = styled.input`
 const Button1 = styled.button`
   width: 90px;
   padding: 0.3rem;
+  cursor: pointer;
 `
 
 const Button2 = styled.button`
@@ -114,4 +115,5 @@ const Button2 = styled.button`
   padding: 0.3rem;
   position: fixed;
   right: 10px;
+  cursor: pointer;
 `

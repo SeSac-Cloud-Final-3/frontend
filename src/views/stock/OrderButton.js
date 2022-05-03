@@ -54,6 +54,7 @@ const Button = styled.button`
   font-family: 'IBM Plex Sans KR', sans-serif;
   font-size: 25px;
   font-weight: bold;
+  cursor: pointer;
   &.Item-red {
     background-color: red;
     margin-right: 0.6rem;
