@@ -6,7 +6,7 @@ import axios from "axios";
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 // axios.defaults.withCredentials = true;
 
-const Trade = ({ backAPI, num, setCompany }) => {
+const Trade = ({ backAPI, num, setCompany, setPfsH }) => {
     const compId = num;
 
     const { stockInfo, isLoading } = useStock();
@@ -22,6 +22,7 @@ const Trade = ({ backAPI, num, setCompany }) => {
                 if (isMounted) {
                     setPfs(data);
                     setPfList(data.map((stock) => stock.stockInfo.ticker));
+                    setPfsH(pfs);
                 }
             });
         return () => {

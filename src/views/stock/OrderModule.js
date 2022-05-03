@@ -7,7 +7,7 @@ import axios from "axios";
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 // axios.defaults.withCredentials = true;
 
-const OrderModule = ({ backAPI, company, compId, orderOpened, setOrderOpened }) => {
+const OrderModule = ({ backAPI, company, compId, orderOpened, setOrderOpened, pfs }) => {
 
     return (
         <>
@@ -29,7 +29,9 @@ const OrderModule = ({ backAPI, company, compId, orderOpened, setOrderOpened }) 
                     <OrderButton
                         backAPI={backAPI}
                         isBuying={false}
-                        pf={null}
+                        pf={pfs.find(
+                            (p) => p.stockInfo.ticker === company.ticker
+                          )}
                         ticker={company.ticker}
                         compId={compId}
                         orderOpened={orderOpened}

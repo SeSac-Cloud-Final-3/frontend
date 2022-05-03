@@ -13,6 +13,7 @@ axios.defaults.headers['Access-Control-Allow-Origin'] = '*';
 const Account = ({ backAPI }) => {
 
     const [show, setShow] = useState(0);
+    const [pfs, setPfsH] = useState([]);
     const [company, setCompany] = useState([]);
     const [account, setAccount] = useState([]);
     const [competition, setCompetition] = useState([]);
@@ -61,11 +62,11 @@ const Account = ({ backAPI }) => {
             </LSubList>
             <Container>
                 <ShowStocks>
-                    <Trade backAPI={backAPI} num={show} setCompany={setCompany}></Trade>
+                    <Trade backAPI={backAPI} num={show} setCompany={setCompany} setPfsH={setPfsH}></Trade>
                 </ShowStocks>
                 <ShowOrder>
                     <ShowPoints>보유 포인트 : {points.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} P</ShowPoints>
-                    <OrderModule backAPI={backAPI} company={company} compId={show} orderOpened={orderOpened} setOrderOpened={setOrderOpened}></OrderModule>
+                    <OrderModule backAPI={backAPI} company={company} compId={show} orderOpened={orderOpened} setOrderOpened={setOrderOpened} pfs={pfs}></OrderModule>
                 </ShowOrder>
                 <RSubList>
                     <NavTo2 to={`/logs/${show}`}>거래 이력</NavTo2>
