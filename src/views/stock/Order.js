@@ -71,10 +71,10 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
         )}
         <p>거래대금 : {amount ? (""+(targetStock.currentPrice * amount)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : "0"}</p>
         <form onSubmit={formHandler}>
-          <input type="number" onChange={inputHandler} placeholder="거래량" />
+          <Input type="number" onChange={inputHandler} placeholder="거래량" />
           <br />
-          <button onClick={formHandler}>확인</button>
-          <button onClick={orderHandler}>취소</button>
+          <Button onClick={formHandler}>확인</Button>
+          <Button onClick={orderHandler}>취소</Button>
         </form>
       </Modal>
     </>
@@ -91,5 +91,24 @@ const Modal = styled.div`
   z-index: 1000;
   border-radius: 4px;
   padding: 1rem;
+  max-width: 200px;
   background-color: white;
 `;
+
+const Input = styled.input`
+  width: 200px;
+  height: 30px;
+  outline: none;
+  border: 1px solid rgba(0,0,0,0.15);
+  margin-bottom: 10px;
+  text-align: right;
+`
+
+const Button = styled.button`
+  width: 90px;
+  padding: 0.3rem;
+  :nth-child(2){
+    position: fixed;
+    right: 10px;
+  }
+`
