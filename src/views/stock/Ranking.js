@@ -21,7 +21,7 @@ const Ranking = ({ backAPI, competition }) => {
     return () => {
       isMounted = false;
     };
-  }, [competition]);
+  }, [compId]);
 
   const getRanking = async (request) => {
     let ranking = [];
@@ -66,7 +66,7 @@ export default Ranking;
 const Container = styled.div`
   margin: 1rem auto;
   /* width: 80%; */
-  display: flex;
+  display: block;
   justify-content: center;
 `;
 

@@ -12,29 +12,33 @@ const OrderModule = ({ backAPI , company, compId, orderOpened, setOrderOpened}) 
     return (
         <>
             <Container>
-            <h1>{company.companyName || "회사명"}</h1>
+                {console.log(company.companyName)}
+            <h1>{company.companyName || "선택된 회사가 없습니다"}</h1>
             {
-                <OrderButton
-                    backAPI={backAPI}
-                    isBuying={true}
-                    pf={null}
-                    ticker={company.ticker}
-                    compId={compId}
-                    orderOpened={orderOpened}
-                    setOrderOpened={setOrderOpened}
-                    />
+                company.companyName === null || company.companyName === undefined ?
+                    <>
+                    <OrderButton
+                        backAPI={backAPI}
+                        isBuying={true}
+                        pf={null}
+                        ticker={company.ticker}
+                        compId={compId}
+                        orderOpened={orderOpened}
+                        setOrderOpened={setOrderOpened}
+                        />
+                    <OrderButton
+                        backAPI={backAPI}
+                        isBuying={false}
+                        pf={null}
+                        ticker={company.ticker}
+                        compId={compId}
+                        orderOpened={orderOpened}
+                        setOrderOpened={setOrderOpened}
+                        />
+                    </>
+                : null
             }
-            {
-                <OrderButton
-                    backAPI={backAPI}
-                    isBuying={false}
-                    pf={null}
-                    ticker={company.ticker}
-                    compId={compId}
-                    orderOpened={orderOpened}
-                    setOrderOpened={setOrderOpened}
-                    />
-            }
+
             </Container>
         </>
     );
