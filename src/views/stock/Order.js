@@ -9,7 +9,6 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
   const tradeAPI = backAPI + "/trade";
   const { stockInfo, isLoading } = useStock();
   const [targetStock, setTargetStock] = useState({});
-  const [showStock, setShowStock] = useState({});
   const [amount, setAmount] = useState();
   const ratio = pf
     ? (
@@ -24,7 +23,6 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
       setTargetStock(data);
     }
     refresh();
-    setShowStock(targetStock);
   }, [ticker, amount]);
 
   const formHandler = async (event) => {
@@ -56,12 +54,12 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
     <>
       <Modal style={{border: `1px solid ${isBuying ? "red":"#0078ff"}`}}>
         <p>{isBuying ? "매수" : "매도"}</p>
-        <p>회사명 : {showStock.companyName}</p>
-        <p>현재가 : {(showStock.currentPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
+        <p>회사명 : {targetStock.companyName}</p>
+        <p>현재가 : {(""+targetStock.currentPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
         {pf && (
           <>
             <p>보유량 : {(pf.amount)}</p>
-            <p>구매가 : {(pf.buyingPrice)}</p>
+            <p>구매가 : {(""+pf.buyingPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
             <p
               style={{
                 color: ratio < 0 ? "blue" : ratio > 0 ? "red" : "black",
@@ -71,7 +69,7 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
             </p>
           </>
         )}
-        <p>거래대금 : {amount ? (showStock.currentPrice * amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : "0"}</p>
+        <p>거래대금 : {amount ? (""+(targetStock.currentPrice * amount)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : "0"}</p>
         <form onSubmit={formHandler}>
           <input type="number" onChange={inputHandler} placeholder="거래량" />
           <br />
