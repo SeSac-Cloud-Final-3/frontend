@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import styled from "styled-components/macro";
 import useStock from "../../utils/useStock";
 import axios from "axios";
@@ -17,9 +17,9 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
       ).toFixed(2)
     : 0;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setTargetStock(stockInfo.data.find((s) => s.ticker === ticker));
-  }, [stockInfo]);
+  }, [ticker]);
 
   const formHandler = async (event) => {
     event.preventDefault();
