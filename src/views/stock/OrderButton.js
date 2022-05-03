@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Order from "./Order";
+import styled from "styled-components/macro";
 
 const OrderButton = ({
   backAPI,
@@ -25,7 +26,7 @@ const OrderButton = ({
   };
   return (
     <>
-      <button onClick={orderHandler}>{isBuying ? "매수" : "매도"}</button>
+      <Button className={isBuying ? "Item-red" : "Item"} onClick={orderHandler}>{isBuying ? "매수" : "매도"}</Button>
       {openOrder && (
         <Order
           isBuying={isBuying}
@@ -41,3 +42,20 @@ const OrderButton = ({
 };
 
 export default OrderButton;
+
+const Button = styled.button`
+  width: 49%;
+  background-color: #0078ff;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 0;
+  color: white;
+  font-family: 'IBM Plex Sans KR', sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  &.Item-red {
+    background-color: red;
+    margin-right: 0.6rem;
+  }
+`

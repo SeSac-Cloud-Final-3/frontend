@@ -73,8 +73,8 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
         <form onSubmit={formHandler}>
           <Input type="number" onChange={inputHandler} placeholder="거래량" />
           <br />
-          <Button onClick={formHandler}>확인</Button>
-          <Button onClick={orderHandler}>취소</Button>
+          <Button1 onClick={formHandler}>확인</Button1>
+          <Button2 onClick={orderHandler}>취소</Button2>
         </form>
       </Modal>
     </>
@@ -104,11 +104,14 @@ const Input = styled.input`
   text-align: right;
 `
 
-const Button = styled.button`
+const Button1 = styled.button`
   width: 90px;
   padding: 0.3rem;
-  :nth-child(2){
-    position: fixed;
-    right: 10px;
-  }
+`
+
+const Button2 = styled.button`
+  width: 90px;
+  padding: 0.3rem;
+  position: fixed;
+  right: 10px;
 `
