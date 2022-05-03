@@ -12,8 +12,6 @@ const OrderButton = ({
 }) => {
   const [openOrder, setOpenOrder] = useState(false);
   const orderHandler = (event) => {
-    if(ticker === null)
-
     if (openOrder) {
       setOrderOpened(false);
       setOpenOrder(false);
