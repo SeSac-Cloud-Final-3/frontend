@@ -53,14 +53,14 @@ const Order = ({ isBuying, pf, orderHandler, ticker, compId, backAPI }) => {
         <p>현재가 : {(targetStock.currentPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
         {pf && (
           <>
-            <p>보유량 : {(pf.amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
-            <p>구매가 : {(pf.buyingPrice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</p>
+            <p>보유량 : {(pf.amount)}</p>
+            <p>구매가 : {(pf.buyingPrice)}</p>
             <p
               style={{
                 color: ratio < 0 ? "blue" : ratio > 0 ? "red" : "black",
               }}
             >
-              등락률 :{ratio.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}%
+              등락률 :{ratio}%
             </p>
           </>
         )}
