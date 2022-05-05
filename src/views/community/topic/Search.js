@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import styled, {css} from "styled-components/macro";
+import styled from "styled-components/macro";
 import moment from "moment";
 import 'moment/locale/ko'
 import axios from "axios";

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, } from "react";
+import React from "react";
 import styled from "styled-components/macro";
 import TopicBox from "./article/TopicBox";
 import { Link } from "react-router-dom";

@@ -1,6 +1,5 @@
-import React, { useState, useEffect, } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import styled, {css} from "styled-components/macro";
 import UserLogin from "./UserLogin";
 

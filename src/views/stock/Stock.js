@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
-import styled, { css } from "styled-components/macro";
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components/macro";
 import loginCheck from "../../utils/loginCheck";
 import Account from "./Account";
 import axios from "axios";

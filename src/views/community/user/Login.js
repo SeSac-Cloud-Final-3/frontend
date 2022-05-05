@@ -1,4 +1,4 @@
-import React, { useState, useEffect, } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components/macro";
 import { useNavigate } from "react-router-dom";

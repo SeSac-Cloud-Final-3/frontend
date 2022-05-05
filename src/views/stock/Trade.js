@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import styled from "styled-components/macro";
-import OrderButton from "./OrderButton";
 import useStock from "../../utils/useStock";
 import axios from "axios";
 axios.defaults.headers['Access-Control-Allow-Origin'] = '*';

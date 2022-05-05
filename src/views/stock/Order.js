@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import styled from "styled-components/macro";
 import useStock from "../../utils/useStock";
 import axios from "axios";

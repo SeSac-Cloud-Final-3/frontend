@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import React, { useState, useLayoutEffect } from "react";
+import { Link } from "react-router-dom";
 import MyPage from "./MyPage";
 import { Register } from "./user/Register";
-import styled, { css } from "styled-components/macro";
+import styled from "styled-components/macro";
 import loginCheck from "../../utils/loginCheck";
 import axios from "axios";
 axios.defaults.withCredentials = true;
